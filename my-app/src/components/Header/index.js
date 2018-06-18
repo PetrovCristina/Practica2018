@@ -1,18 +1,22 @@
 // src/components/Header/index.js
    import React from "react";
    import "./Header.css";
-
+   import {BrowserRouter, Link} from 'react-router-dom';
+  
    class Header extends React.Component{
        render(){
            return (
+
               <nav className="Nav">
                 <div className="Nav-menus">
-                  <div className="Nav-brand">
-                    <a className="Nav-brand-logo" href="/">
+                    <Link to="/" >
                       Instagram
-                    </a>
+                    </Link>
                   </div>
-                </div>
+                  <Link to="/profile" >
+                      <div className="Nav-profile"/>
+                    </Link>
+                    <a href="https://api.instagram.com/oauth/authorize/?client_id=10010c57d22e425994817c8a8ce8751b&redirect_uri=http://localhost:3000/auth/callback&response_type=token" className="Sign-In">Sign In</a>
               </nav>
           );
        }

@@ -11,8 +11,8 @@
       height: 77px;
     }
     .Nav-menus {
-      display: flex;
-      flex-direction: row;
+      /*display: flex;
+      flex-direction: row;*/
       height: 77px;
       width: 70%;
       margin: 0 auto;
@@ -26,5 +26,15 @@
       background-repeat: no-repeat;
       height: 35px;
       width: 176px;
-      text-indent: -1000%
+      text-indent: -1000%;
+    }
+    .Nav-profile{
+      background-image: url(../../avatar.png);
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      height: 35px;
+      width: 35px;
+      margin-top: -100px;
+      margin-left: 1000px;
+      border-radius: 50%;
     }
