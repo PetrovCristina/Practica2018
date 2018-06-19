@@ -16,7 +16,7 @@ function getHash(hash, key) {
 class AuthCallBack extends React.Component {
   componentDidMount() {
     const token = getHash(this.props.location.hash, "access_token")
-    this.props.token
+    this.props.saveToken(token)
   }
   render() {
     return <Redirect to="/"/>

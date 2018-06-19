@@ -7,11 +7,12 @@ import Feed from './components/Feed';
 import AuthCallBack from './AuthCallBack.js';
 import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux'
-import {changeData} from './actions'
+import {changeData, saveToken} from './actions'
 
 class App extends Component {
 
   change = () => this.props.changeData('Petrov')
+  token = () => this.props.saveToken("access_token")
 
   render() {
 

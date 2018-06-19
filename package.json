@@ -3,12 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^6.5.1",
-    "auth0-js": "^9.6.1",
-    "instagram-api": "^1.0.3",
-    "node-instagram": "^4.1.0",
     "react": "^16.4.1",
-    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
