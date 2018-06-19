@@ -11,9 +11,6 @@ function getHash(hash, key) {
  return params[key]
 }
 
-// Example
-//console.log(getHash('#key1=the_value&key2=value2', 'key2'))
-
 class AuthCallBack extends React.Component {
   componentDidMount() {
     const token = getHash(this.props.location.hash, "access_token")

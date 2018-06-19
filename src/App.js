@@ -6,13 +6,19 @@ import Profile from './components/Profile';
 import Feed from './components/Feed';
 import AuthCallBack from './AuthCallBack.js';
 import {Switch, Route} from 'react-router-dom';
+import {connect} from 'react-redux'
+import {changeData} from './actions'
 
 class App extends Component {
+
+  change = () => this.props.changeData('Petrov')
+
   render() {
 
     return (
       <div>
         <Header />
+        <button onClick={this.change}>change data</button>
         <Switch>
           <Route exact path="/auth/callback" component={AuthCallBack}/>
           <Route exact path="/" component={Feed}/>
@@ -23,4 +29,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatch = {
+  changeData
+}
+
+export default connect(null, mapDispatch)(App);
