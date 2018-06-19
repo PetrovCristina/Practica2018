@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {saveToken} from './actions';
 
 function getHash(hash, key) {
  const params = hash
@@ -14,11 +16,14 @@ function getHash(hash, key) {
 class AuthCallBack extends React.Component {
   componentDidMount() {
     const token = getHash(this.props.location.hash, "access_token")
-    console.log(token)
+    this.props.token
   }
   render() {
     return <Redirect to="/"/>
   }
 }
 
-export default AuthCallBack;
+const mapDispatch = {
+  saveToken
+}
+export default connect(null, mapDispatch)(AuthCallBack);

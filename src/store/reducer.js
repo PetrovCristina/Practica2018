@@ -1,5 +1,5 @@
 const initialState = {
-  token: "..."
+  token: null
 }
 
 export function reducer(state = initialState, action)
@@ -10,6 +10,13 @@ export function reducer(state = initialState, action)
         ...state,
         token: action.payload.string
       }
+    case "SAVE_TOKEN":
+      return {
+        ...state,
+        token: action.payload.token
+      }
+
+      break;
     default:
       return state
   }

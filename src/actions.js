@@ -4,3 +4,10 @@ export const changeData = (string) => ({
     string
   }
 })
+
+export const saveToken = (token) => ({
+  type: "SAVE_TOKEN",
+  payload: {
+    token
+  }
+})
