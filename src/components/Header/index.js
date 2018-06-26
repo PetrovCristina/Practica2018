@@ -5,6 +5,25 @@
  import {connect} from 'react-redux';
 
  class Header extends React.Component{
+    login(){
+      window.FB.login(function(response) {
+    if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     window.FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    } else {
+     console.log('User cancelled login or did not fully authorize.');
+    }
+});
+    }
+    logout(){
+window.FB.getLoginStatus(function (response) {
+  if (response && response.status === 'connected') {
+    window.FB.logout();}
+  console.log('Good bye');
+});
+    }
      render(){
          return (
 
@@ -18,7 +37,8 @@
                 <Link to="/profile" >
                     <div className="Nav-profile"/>
                   </Link>
-                  <a href="https://api.instagram.com/oauth/authorize/?client_id=10010c57d22e425994817c8a8ce8751b&redirect_uri=http://localhost:3000/auth/callback&response_type=token" className="Sign-In">Sign In</a>
+                  <button onClick={this.login}>Log In</button>
+                  <button onClick={this.logout}>Log Out</button>
             </nav>
         );
      }

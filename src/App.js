@@ -12,14 +12,12 @@ import {changeData, saveToken} from './actions'
 class App extends Component {
 
   change = () => this.props.changeData('Petrov')
-  token = () => this.props.saveToken("access_token")
 
   render() {
 
     return (
       <div>
         <Header />
-        <button onClick={this.change}>change data</button>
         <Switch>
           <Route exact path="/auth/callback" component={AuthCallBack}/>
           <Route exact path="/" component={Feed}/>
