@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Post from './components/Post';
 import Profile from './components/Profile';
 import Feed from './components/Feed';
 import AuthCallBack from './AuthCallBack.js';
-import {Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux'
-import {changeData, saveToken} from './actions'
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { changeData } from './actions'
 
 class App extends Component {
 
@@ -19,9 +18,9 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/auth/callback" component={AuthCallBack}/>
-          <Route exact path="/" component={Feed}/>
-          <Route path="/profile" component={Profile}/>
+          <Route exact path="/auth/callback" component={AuthCallBack} />
+          <Route exact path="/" component={Feed} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>
     );

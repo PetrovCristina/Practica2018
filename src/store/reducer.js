@@ -2,8 +2,7 @@ const initialState = {
   token: null
 }
 
-export function reducer(state = initialState, action)
-{
+export function reducer(state = initialState, action) {
   switch (action.type) {
     case "CHANGE_STRING":
       return {
@@ -15,8 +14,6 @@ export function reducer(state = initialState, action)
         ...state,
         token: action.payload.token
       }
-
-      break;
     default:
       return state
   }
