@@ -5,20 +5,21 @@ import Profile from './components/Profile';
 import Feed from './components/Feed';
 import AuthCallBack from './AuthCallBack.js';
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { changeData } from './actions'
+import { connect } from 'react-redux';
+import { changeData } from './actions';
+import Login from "./components/welcome";
 
 class App extends Component {
 
   change = () => this.props.changeData('Petrov')
 
   render() {
-
     return (
       <div>
         <Header />
         <Switch>
           <Route exact path="/auth/callback" component={AuthCallBack} />
+          <Route path="/login" exact component={Login} />
           <Route exact path="/" component={Feed} />
           <Route path="/profile" component={Profile} />
         </Switch>

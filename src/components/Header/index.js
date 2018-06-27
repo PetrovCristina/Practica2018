@@ -5,6 +5,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
+      user(){
+        /* make the API call */
+  window.FB.api(
+      "/{17841408086544754}",
+      function (response) {
+        if (response && !response.error) {
+          /* handle the result */
+          console.log('success');
+        }
+        else {
+          console.log('error');
+          }
+        });
+      }
 
   logout() {
     window.FB.getLoginStatus(function (response) {
@@ -32,6 +46,8 @@ class Header extends React.Component {
         <Link to="/login">
         <button onClick={this.logout} className="navigation button logout">Log Out</button>
         </Link>
+
+<button onClick={this.user}>user</button>
 
       </nav>
     );
