@@ -1,30 +1,38 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Profile from './components/Profile';
-import Feed from './components/Feed';
-import AuthCallBack from './AuthCallBack.js';
-import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { changeData } from './actions';
-import Login from "./components/welcome";
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Container } from 'reactstrap'
+import './App.css'
+import Header from './components/Header'
+import Profile from './components/Profile'
+import AuthCallBack from './AuthCallBack.js'
+import { changeData } from './actions'
+import Login from './components/welcome'
+import PhotoList from './components/PhotoList'
 
 class App extends Component {
-
-  change = () => this.props.changeData('Petrov')
+  state = {
+    results: [],
+    loading: true
+  }
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header />
-        <Switch>
-          <Route exact path="/auth/callback" component={AuthCallBack} />
-          <Route path="/login" exact component={Login} />
-          <Route exact path="/" component={Feed} />
-          <Route path="/profile" component={Profile} />
-        </Switch>
-      </div>
-    );
+        <Container>
+          <Switch>
+            <Route exact path="/auth/callback" component={AuthCallBack} />
+            <Route path="/login" exact component={Login} />
+            <Route exact path="/" component={PhotoList} />
+            <Route path="/profile" component={Profile} />
+            {/* <Route path="/user/:id" component={User} />
+            <Route path="/photo/:id" component={User} />*/}
+          </Switch>
+          {/* Footer */}
+        </Container>
+      </React.Fragment>
+    )
   }
 }
 
@@ -32,4 +40,7 @@ const mapDispatch = {
   changeData
 }
 
-export default connect(null, mapDispatch)(App);
+export default connect(
+  null,
+  mapDispatch
+)(App)

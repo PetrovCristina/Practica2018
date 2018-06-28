@@ -4,12 +4,12 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case "CHANGE_STRING":
+    case 'CHANGE_STRING':
       return {
         ...state,
         token: action.payload.string
       }
-    case "SAVE_TOKEN":
+    case 'SAVE_TOKEN':
       return {
         ...state,
         token: action.payload.token

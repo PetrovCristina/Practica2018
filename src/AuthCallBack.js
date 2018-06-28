@@ -1,22 +1,24 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { saveToken } from './actions';
+import React from 'react'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { saveToken } from './actions'
 
-function getHash(hash, key) {
-  const params = hash
-    .substr(1)
-    .split('&')
-    .map(param => param.split('='))
-    .reduce((acc, curr) => ({ ...acc, [curr[0]]: curr[1] }), {})
-
-  return params[key]
-}
+import unsplash from './unsplash'
 
 class AuthCallBack extends React.Component {
   componentDidMount() {
-    const token = getHash(this.props.location.hash, "access_token")
-    this.props.saveToken(token)
+    const { location } = this.props
+    const params = new URLSearchParams(location.search)
+    const code = params.get('code')
+    console.log(code)
+    unsplash.auth
+      .userAuthentication(code)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        localStorage.setItem('access_token', json.access_token)
+        unsplash.auth.setBearerToken(json.access_token)
+      })
   }
   render() {
     return <Redirect to="/" />
@@ -26,4 +28,7 @@ class AuthCallBack extends React.Component {
 const mapDispatch = {
   saveToken
 }
-export default connect(null, mapDispatch)(AuthCallBack);
+export default connect(
+  null,
+  mapDispatch
+)(AuthCallBack)

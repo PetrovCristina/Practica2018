@@ -1,62 +1,67 @@
 // src/components/Header/index.js
-import React from "react";
-import "./Header.css";
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Container
+} from 'reactstrap'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import unsplash from '../../unsplash'
+
+const authenticationUrl = unsplash.auth.getAuthenticationUrl(['public'])
 
 class Header extends React.Component {
-      user(){
-        /* make the API call */
-  window.FB.api(
-      "/{17841408086544754}",
-      function (response) {
-        if (response && !response.error) {
-          /* handle the result */
-          console.log('success');
-        }
-        else {
-          console.log('error');
-          }
-        });
-      }
-
-  logout() {
-    window.FB.getLoginStatus(function (response) {
-      if (response && response.status === 'connected') {
-        window.FB.logout();
-      }
-      console.log('Good bye');
-    });
+  state = {
+    isOpen: false
   }
+
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   render() {
     return (
-
-      <nav className="Nav">
-        <div className="Nav-menus">
-          <Link to="/" >
-            Instagram
-                    {this.props.token}
-          </Link>
-        </div>
-
-        <Link to="/profile" >
-          <div className="Nav-profile" />
-        </Link>
-
-        <Link to="/login">
-        <button onClick={this.logout} className="navigation button logout">Log Out</button>
-        </Link>
-
-<button onClick={this.user}>user</button>
-
-      </nav>
-    );
+      <React.Fragment>
+        <Navbar color="light" light expand="md">
+          <Container>
+            <NavbarBrand tag={Link} to="/">
+              Instagram
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink tag={Link} to="/profile/">
+                    Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href={authenticationUrl}>Sign In</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </React.Fragment>
+    )
   }
 }
 const mapStateToProps = state => {
   return {
     data: state.token
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps)(Header)
