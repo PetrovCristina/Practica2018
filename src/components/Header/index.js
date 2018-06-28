@@ -8,10 +8,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container
 } from 'reactstrap'
 import { connect } from 'react-redux'
@@ -37,7 +33,7 @@ class Header extends React.Component {
         <Navbar color="light" light expand="md">
           <Container>
             <NavbarBrand tag={Link} to="/">
-              Instagram
+              Unsplash
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

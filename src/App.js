@@ -26,8 +26,8 @@ class App extends Component {
             <Route path="/login" exact component={Login} />
             <Route exact path="/" component={PhotoList} />
             <Route path="/profile" component={Profile} />
-            {/* <Route path="/user/:id" component={User} />
-            <Route path="/photo/:id" component={User} />*/}
+            <Route path="/profile/:username" component={Profile} />
+            {/*<Route path="/photo/:id" component={User} />*/}
           </Switch>
           {/* Footer */}
         </Container>

@@ -1,5 +1,8 @@
 import React from 'react'
 import unsplash from '../../unsplash'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './style.css'
+import Example from '../Pagination'
 
 class PhotoList extends React.Component {
   state = {
@@ -22,13 +25,20 @@ class PhotoList extends React.Component {
   render() {
     const { photos } = this.state
     return photos ? (
-      <ul>
-        {photos.map(photo => (
-          <li key={photo.id}>
-            <img src={photo.urls.thumb} alt={photo.description} />
-          </li>
-        ))}
-      </ul>
+      <React.Fragment>
+        <ul>
+          {photos.map(photo => (
+            <li key={photo.id}>
+              <img
+                class="img-thumbnail rounded float-left"
+                src={photo.urls.small}
+                alt={photo.description}
+              />
+            </li>
+          ))}
+        </ul>
+        <Example />
+      </React.Fragment>
     ) : (
       <div>Loading...</div>
     )
