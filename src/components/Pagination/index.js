@@ -7,10 +7,10 @@ class Example extends React.Component {
       <React.Fragment>
         <Pagination>
           <PaginationItem disabled>
-            <PaginationLink previous href="../PhotoList/index.js" />
+            <PaginationLink previous href="/" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink next href="../PhotoList/index.js" />
+            <PaginationLink next href="/" />
           </PaginationItem>
         </Pagination>
       </React.Fragment>

@@ -2,6 +2,8 @@
 import React from 'react'
 import './profile.css'
 import unsplash from '../../unsplash'
+import User from '../User'
+
 class Profile extends React.Component {
   state = {
     profile: null
@@ -12,17 +14,17 @@ class Profile extends React.Component {
   }
   getProfile = () =>
     unsplash.users
-      .profile('rawpixel')
+      .profile(this.props.match.params.username)
       .then(response => response.json())
       .then(profile => {
         console.log(profile)
-        this.props.match.params.username
+        this.setState({ profile })
       })
       .catch(error => console.log('Error fetching and parsing data', error))
 
   render() {
     const { profile } = this.state
-    return profile ? <div>hello</div> : <div>No profile</div>
+    return profile ? <User /> : <div>No profile</div>
   }
 }
 
