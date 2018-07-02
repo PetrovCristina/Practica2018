@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/auth/callback" component={AuthCallBack} />
             <Route path="/login" exact component={Login} />
             <Route exact path="/" component={PhotoList} />
-            <Route path="/profile/:username" component={Profile} />
+            <Route path="/profile" component={Profile} />
             {/*<Route path="/photo/:id" component={User} />*/}
           </Switch>
           {/* Footer */}
