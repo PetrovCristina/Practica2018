@@ -30,7 +30,7 @@ class PhotoList extends React.Component {
           {photos.map(photo => (
             <li key={photo.id}>
               <img
-                class="img-thumbnail rounded float-left"
+                className="img-thumbnail rounded float-left"
                 src={photo.urls.small}
                 alt={photo.description}
               />

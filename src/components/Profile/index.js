@@ -83,7 +83,7 @@ class Profile extends React.Component {
 
         {currentUser.photos.map(photo => (
           <img
-            src={photo}
+            src={photo.urls.small}
             key={photo.id}
             alt={photo.description}
             className="userImages float-left"

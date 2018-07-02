@@ -1,5 +1,6 @@
 import Unsplash from 'unsplash-js'
-
+import { mock } from './mock'
+import listPhotosMock from './listPhotos'
 const bearerToken = localStorage.getItem('access_token')
 
 const unsplash = new Unsplash({
@@ -9,5 +10,8 @@ const unsplash = new Unsplash({
   callbackUrl: 'http://localhost:3000/auth/callback',
   bearerToken
 })
+
+mock(unsplash, 'photos.listPhotos', listPhotosMock)
+// mock(unsplash, 'curretUser.profile', profileMock)
 
 export default unsplash
