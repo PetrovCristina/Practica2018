@@ -13,6 +13,7 @@ import {
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import unsplash from '../../unsplash'
+import logo from './logo.png'
 
 const authenticationUrl = unsplash.auth.getAuthenticationUrl(['public'])
 
@@ -33,7 +34,7 @@ class Header extends React.Component {
         <Navbar color="light" light expand="md">
           <Container>
             <NavbarBrand tag={Link} to="/">
-              Unsplash
+              <img src={logo} alt="Logo" />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

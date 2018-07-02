@@ -28,7 +28,7 @@ i.Nav {
   width: 176px;
   text-indent: -1000%;
 }
-.Nav-profile{
+.Nav-profile {
   background-image: url(../../avatar.png);
   background-size: 40px 40px;
   background-repeat: no-repeat;
@@ -42,12 +42,12 @@ i.Nav {
 /* logout button */
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 .logout {
-  font-size: .6em;
+  font-size: 0.6em;
   font-family: 'Oswald', sans-serif;
 }
 
 .button {
-	text-decoration: none;
+  text-decoration: none;
   border-radius: 5px;
   margin-left: 75%;
   margin-bottom: 10px;
@@ -58,7 +58,7 @@ i.Nav {
 }
 
 button:hover {
-  color:white;
+  color: white;
   background-color: #a9a9a9;
 }
 

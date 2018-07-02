@@ -2,7 +2,13 @@
 import React from 'react'
 import './profile.css'
 import unsplash from '../../unsplash'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap'
+import sorry from './sorry.jpg'
 
 class Profile extends React.Component {
   state = {
@@ -22,6 +28,21 @@ class Profile extends React.Component {
       })
       .catch(error => console.log('Error fetching and parsing data', error))
 
+  constructor(props) {
+    super(props)
+
+    this.toggle = this.toggle.bind(this)
+    this.state = {
+      dropdownOpen: false
+    }
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }))
+  }
+
   render() {
     const { currentUser } = this.state
     return currentUser ? (
@@ -29,46 +50,23 @@ class Profile extends React.Component {
         <div className="userInfo">
           <div className="username">
             <h1>
-              {currentUser.first_name}{' '}
-              <small className="text-muted">{currentUser.last_name}</small>
+              {currentUser.first_name} {currentUser.last_name}
             </h1>
-            <button type="button" class="edit btn btn-outline-secondary">
+            <button type="button" className="edit btn btn-outline-secondary">
               Edit profile
             </button>
           </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false">
-              ...
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">
-                Account settings
-              </a>
-              <a class="dropdown-item" href="#">
-                Submit a photo
-              </a>
-              <a class="dropdown-item" href="#">
-                Manage photos
-              </a>
-              <a class="dropdown-item" href="#">
-                My Stats
-              </a>
-              <a class="dropdown-item" href="#">
-                Contact us
-              </a>
-              <a class="dropdown-item" href="#">
-                Logout
-              </a>
-            </div>
-          </div>
-
+          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret>...</DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem>Account settings</DropdownItem>
+              <DropdownItem>Submit a photo</DropdownItem>
+              <DropdownItem>Manage photos</DropdownItem>
+              <DropdownItem>My Stats</DropdownItem>
+              <DropdownItem>Contact us</DropdownItem>
+              <DropdownItem>Logout</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
           <div className="profileDesc">
             Download free, beautiful high-quality photos curated by{' '}
             {currentUser.first_name}.
@@ -93,7 +91,9 @@ class Profile extends React.Component {
         ))}
       </React.Fragment>
     ) : (
-      <div>No profile</div>
+      <div>
+        <img src={sorry} alt="Sorry" />
+      </div>
     )
   }
 }
