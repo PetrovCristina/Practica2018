@@ -14,6 +14,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import unsplash from '../../unsplash'
 import logo from './logo.png'
+import { Form, FormGroup, Input } from 'reactstrap'
+import './Header.css'
 
 const authenticationUrl = unsplash.auth.getAuthenticationUrl(['public'])
 
@@ -36,6 +38,17 @@ class Header extends React.Component {
             <NavbarBrand tag={Link} to="/">
               <img src={logo} alt="Logo" />
             </NavbarBrand>
+            <Form className="searchForm">
+              <FormGroup>
+                <Link to="/search/" />
+                <Input
+                  type="search"
+                  name="search"
+                  id="exampleSearch"
+                  placeholder="search"
+                />
+              </FormGroup>
+            </Form>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

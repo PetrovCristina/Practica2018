@@ -1,0 +1,127 @@
+/* like button */
+
+.button-like {
+  border: 0px solid #000;
+  background-color: white;
+  opacity: 0.8;
+  margin-left: 100px;
+  float: right;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-right: 100px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding-top: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  color: red;
+  transition: all ease 0.4s;
+}
+
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.4s;
+}
+
+.button-like:hover {
+  border-color: #cc4b37;
+  background-color: white;
+}
+
+.liked {
+  background-color: white;
+  border-color: white;
+  opacity: 0.5;
+}
+
+.liked .fa {
+  color: #fefefe;
+}
+
+.liked:focus {
+  background-color: #cc4b37;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+  color: #fefefe;
+}
+
+.liked:hover {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+  color: #fefefe;
+}
+/* end like button */
+
+/* collect button */
+
+.plus-minus-input .input-group-button .square {
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  cursor: pointer;
+  margin-top: -60px;
+  margin-left: 320px;
+}
+
+.square {
+  border: 0px solid #000;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 5px;
+  text-decoration: none;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  color: #8a8a8a;
+  transition: all ease 0.4s;
+}
+
+.square .fa {
+  transition: all ease 0.4s;
+}
+
+.square:focus {
+  background-color: transparent;
+}
+
+.square:focus .fa {
+  color: #8a8a8a;
+}
+
+.square:hover {
+  border-color: #cc4b37;
+  background-color: white;
+  opacity: 0.8;
+}
+
+span {
+  margin-left: 0.5rem;
+}
+.fa,
+span {
+  transition: all ease 0.4s;
+}
+
+.fa,
+span {
+  color: $dark-gray;
+}
+
+.square:hover .fa {
+  color: #8a8a8a;
+}
+
+/* end collect button */

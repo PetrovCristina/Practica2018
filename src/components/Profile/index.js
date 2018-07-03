@@ -1,6 +1,8 @@
 // src/components/Profile/index.js
 import React from 'react'
 import './profile.css'
+import './buttons.css'
+import './hover.css'
 import unsplash from '../../unsplash'
 import {
   Dropdown,
@@ -13,9 +15,7 @@ import {
 import sorry from './sorry.jpg'
 import logo from './logo.png'
 import { Link } from 'react-router-dom'
-import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 class Profile extends React.Component {
   state = {
@@ -72,7 +72,7 @@ class Profile extends React.Component {
               </button>
             </div>
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret>...</DropdownToggle>
+              <DropdownToggle color="white">...</DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>Account settings</DropdownItem>
                 <DropdownItem>Submit a photo</DropdownItem>
@@ -93,22 +93,22 @@ class Profile extends React.Component {
           <Row>
             <Col>
               {currentUser.photos.map(photo => (
-                <div class="hovereffect">
+                <div className="hovereffect" key={photo.id}>
                   <img
                     src={photo.urls.small}
                     key={photo.id}
                     alt={photo.description}
                     className="userImages float-left"
                   />
-                  <div class="overlay">
-                    <button class="button button-like">
+                  <div className="overlay">
+                    <button className="button button-like">
                       <FontAwesomeIcon icon="heart" />
                     </button>
-                    <div class="input-group plus-minus-input">
-                      <div class="input-group-button">
+                    <div className="input-group plus-minus-input">
+                      <div className="input-group-button">
                         <button
                           type="button"
-                          class="button square"
+                          className="button square"
                           data-quantity="plus"
                           data-field="quantity">
                           <FontAwesomeIcon icon="plus" />

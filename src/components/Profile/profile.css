@@ -10,7 +10,7 @@
 
 .profilePic {
   border-radius: 50%;
-  margin-left: 10%;
+  margin-left: 100%;
   margin-top: 30px;
   height: 150px;
   width: 150px;
@@ -18,23 +18,21 @@
 
 .username {
   font-weight: bold;
-  margin-left: 35%;
+  margin-left: 25%;
+  margin-top: 50px;
 }
 .edit {
-  border: 1px solid;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #888888;
-  margin-left: 35%;
+  margin-left: 30%;
   margin-top: -80px;
 }
 
 .dropdown {
-  margin-left: 75%;
+  margin-left: 60%;
   margin-top: -68px;
 }
 
 .profileDesc {
-  margin-left: 35%;
+  margin-left: 25%;
   margin-top: 40px;
 }
 
@@ -52,172 +50,3 @@
   margin-bottom: 70px;
   margin-top: 12px;
 }
-
-/* hover */
-.hovereffect {
-  width: auto;
-  height: auto;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  cursor: default;
-}
-
-.hovereffect .overlay {
-  width: auto;
-  margin-top: -80px;
-  height: 75%;
-  position: absolute;
-  overflow: hidden;
-  top: 80px;
-  left: 0;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-.hovereffect img {
-  display: block;
-  position: relative;
-  -webkit-transition: all 0.4s linear;
-  transition: all 0.4s linear;
-}
-
-.hovereffect:hover img {
-  -ms-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-
-.hovereffect:hover .overlay {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
-/* like button */
-
-.button-like {
-  border: 0px solid #000;
-  background-color: white;
-  opacity: 0.8;
-  margin-left: 100px;
-  float: right;
-  margin-top: 10px;
-  margin-right: 100px;
-  border-radius: 5px;
-  text-decoration: none;
-  padding-top: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 3px;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block;
-  color: red;
-  transition: all ease 0.4s;
-}
-
-.button-like .fa,
-.button-like span {
-  transition: all ease 0.4s;
-}
-
-.button-like:hover {
-  border-color: #cc4b37;
-  background-color: white;
-}
-
-.liked {
-  background-color: white;
-  border-color: white;
-  opacity: 0.5;
-}
-
-.liked .fa {
-  color: #fefefe;
-}
-
-.liked:focus {
-  background-color: #cc4b37;
-}
-
-.liked:focus .fa,
-.liked:focus span {
-  color: #fefefe;
-}
-
-.liked:hover {
-  background-color: #cc4b37;
-  border-color: #cc4b37;
-}
-
-.liked:hover .fa,
-.liked:hover span {
-  color: #fefefe;
-}
-/* end like button */
-
-/* collect button */
-
-.plus-minus-input .input-group-button .square {
-  border-radius: 5px;
-  padding-top: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 3px;
-  margin-top: -60px;
-  margin-left: 320px;
-}
-
-.square {
-  border: 0px solid #000;
-  background-color: white;
-  opacity: 0.8;
-  border-radius: 5px;
-  text-decoration: none;
-  position: relative;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block;
-  color: #8a8a8a;
-  transition: all ease 0.4s;
-}
-
-.square .fa {
-  transition: all ease 0.4s;
-}
-
-.square:focus {
-  background-color: transparent;
-}
-
-.square:focus .fa {
-  color: #8a8a8a;
-}
-
-.square:hover {
-  border-color: #cc4b37;
-  background-color: white;
-  opacity: 0.8;
-}
-
-span {
-  margin-left: 0.5rem;
-}
-.fa,
-span {
-  transition: all ease 0.4s;
-}
-
-.fa,
-span {
-  color: $dark-gray;
-}
-
-.square:hover .fa {
-  color: #8a8a8a;
-}
-
-/* end collect button */
-/* hover */

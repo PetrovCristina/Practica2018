@@ -1,0 +1,40 @@
+.hovereffect {
+  width: auto;
+  height: auto;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.hovereffect .overlay {
+  width: auto;
+  margin-top: -80px;
+  height: 75%;
+  position: absolute;
+  overflow: hidden;
+  top: 80px;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+.hovereffect:hover img {
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
