@@ -1,6 +1,7 @@
 import Unsplash from 'unsplash-js'
 import { mock } from './mock'
 import listPhotosMock from './listPhotos'
+import profileMock from './profile'
 const bearerToken = localStorage.getItem('access_token')
 
 const unsplash = new Unsplash({
@@ -12,6 +13,6 @@ const unsplash = new Unsplash({
 })
 
 mock(unsplash, 'photos.listPhotos', listPhotosMock)
-// mock(unsplash, 'curretUser.profile', profileMock)
+mock(unsplash, 'curretUser.profile', profileMock)
 
 export default unsplash
