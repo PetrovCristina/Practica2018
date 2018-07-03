@@ -6,9 +6,16 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Row,
+  Col
 } from 'reactstrap'
 import sorry from './sorry.jpg'
+import logo from './logo.png'
+import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 class Profile extends React.Component {
   state = {
@@ -47,48 +54,81 @@ class Profile extends React.Component {
     const { currentUser } = this.state
     return currentUser ? (
       <React.Fragment>
-        <div className="userInfo">
-          <div className="username">
-            <h1>
-              {currentUser.first_name} {currentUser.last_name}
-            </h1>
-            <button type="button" className="edit btn btn-outline-secondary">
-              Edit profile
-            </button>
-          </div>
-          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle caret>...</DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem>Account settings</DropdownItem>
-              <DropdownItem>Submit a photo</DropdownItem>
-              <DropdownItem>Manage photos</DropdownItem>
-              <DropdownItem>My Stats</DropdownItem>
-              <DropdownItem>Contact us</DropdownItem>
-              <DropdownItem>Logout</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          <div className="profileDesc">
-            Download free, beautiful high-quality photos curated by{' '}
-            {currentUser.first_name}.
-          </div>
+        <Row>
+          <Col xs="auto">
+            <img
+              src={currentUser.profile_image.large}
+              alt="Profile"
+              className="profilePic"
+            />
+          </Col>
+          <Col>
+            <div className="username">
+              <h1>
+                {currentUser.first_name} {currentUser.last_name}
+              </h1>
+              <button type="button" className="edit btn btn-outline-secondary">
+                Edit profile
+              </button>
+            </div>
+            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle caret>...</DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>Account settings</DropdownItem>
+                <DropdownItem>Submit a photo</DropdownItem>
+                <DropdownItem>Manage photos</DropdownItem>
+                <DropdownItem>My Stats</DropdownItem>
+                <DropdownItem>Contact us</DropdownItem>
+                <DropdownItem>Logout</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            <div className="profileDesc">
+              Download free, beautiful high-quality photos curated by{' '}
+              {currentUser.first_name}.
+            </div>
+          </Col>
+        </Row>
+
+        <div className="position">
+          <Row>
+            <Col>
+              {currentUser.photos.map(photo => (
+                <div class="hovereffect">
+                  <img
+                    src={photo.urls.small}
+                    key={photo.id}
+                    alt={photo.description}
+                    className="userImages float-left"
+                  />
+                  <div class="overlay">
+                    <button class="button button-like">
+                      <FontAwesomeIcon icon="heart" />
+                    </button>
+                    <div class="input-group plus-minus-input">
+                      <div class="input-group-button">
+                        <button
+                          type="button"
+                          class="button square"
+                          data-quantity="plus"
+                          data-field="quantity">
+                          <FontAwesomeIcon icon="plus" />
+                          <span>Collect</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Col>
+          </Row>
         </div>
 
-        <div>
-          <img
-            src={currentUser.profile_image.large}
-            alt="Profile"
-            className="profilePic"
-          />
+        <div className="mainPage">
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
+          <p>Make something awesome</p>
         </div>
-
-        {currentUser.photos.map(photo => (
-          <img
-            src={photo.urls.small}
-            key={photo.id}
-            alt={photo.description}
-            className="userImages float-left"
-          />
-        ))}
       </React.Fragment>
     ) : (
       <div>

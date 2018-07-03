@@ -9,6 +9,12 @@ import AuthCallBack from './AuthCallBack.js'
 import { changeData } from './actions'
 import Login from './components/welcome'
 import PhotoList from './components/PhotoList'
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faHeart, faPlus)
 
 class App extends Component {
   state = {
