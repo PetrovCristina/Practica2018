@@ -16,6 +16,7 @@ import unsplash from '../../unsplash'
 import logo from './logo.png'
 import { Form, FormGroup, Input } from 'reactstrap'
 import './Header.css'
+import './search.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const authenticationUrl = unsplash.auth.getAuthenticationUrl(['public'])
@@ -39,19 +40,25 @@ class Header extends React.Component {
             <NavbarBrand tag={Link} to="/">
               <img src={logo} alt="Logo" />
             </NavbarBrand>
+
             <Form className="searchForm">
               <FormGroup>
-                <button className="search">
-                  <FontAwesomeIcon icon="search" />
-                </button>
-                <Input
-                  type="search"
-                  name="search"
-                  id="exampleSearch"
-                  placeholder="search"
-                />
+                <div className="wrap">
+                  <div className="search">
+                    <Input
+                      type="search"
+                      name="search"
+                      className="searchTerm"
+                      placeholder="What are you looking for?"
+                    />
+                    <button className="searchButton" tag={Link} to="/search/">
+                      <FontAwesomeIcon icon="search" />
+                    </button>
+                  </div>
+                </div>
               </FormGroup>
             </Form>
+
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
