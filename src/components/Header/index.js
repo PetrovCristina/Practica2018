@@ -14,7 +14,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import unsplash from '../../unsplash'
 import logo from './logo.png'
-import { Form, FormGroup, Input } from 'reactstrap'
+import { Form, FormGroup, Input, Button } from 'reactstrap'
 import './Header.css'
 import './search.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -51,9 +51,13 @@ class Header extends React.Component {
                       className="searchTerm"
                       placeholder="What are you looking for?"
                     />
-                    <button className="searchButton" tag={Link} to="/search/">
+                    <Button
+                      color="white"
+                      className="searchButton"
+                      tag={Link}
+                      to="/search/">
                       <FontAwesomeIcon icon="search" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </FormGroup>
