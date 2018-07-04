@@ -4,20 +4,13 @@
   border: 0px solid #000;
   background-color: white;
   opacity: 0.8;
-  margin-left: 100px;
-  float: right;
   margin-top: 10px;
   cursor: pointer;
-  margin-right: 100px;
+  margin-left: 200px;
   border-radius: 5px;
   text-decoration: none;
-  padding-top: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 3px;
   vertical-align: middle;
   text-align: center;
-  display: inline-block;
   color: red;
   transition: all ease 0.4s;
 }
@@ -66,13 +59,9 @@
 
 .plus-minus-input .input-group-button .square {
   border-radius: 5px;
-  padding-top: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 3px;
   cursor: pointer;
-  margin-top: -60px;
-  margin-left: 320px;
+  margin-top: -75px;
+  margin-left: 305px;
 }
 
 .square {
