@@ -49,7 +49,7 @@ class Header extends React.Component {
                       type="search"
                       name="search"
                       className="searchTerm"
-                      placeholder="What are you looking for?"
+                      placeholder="Search free high-resolution photos"
                     />
                     <Button
                       color="white"
