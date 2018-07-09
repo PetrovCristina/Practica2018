@@ -4,3 +4,12 @@ ul {
 ul img {
   margin: 10px;
 }
+
+.userPic img {
+  border-radius: 50%;
+}
+
+.userPic {
+  margin-left: 40px;
+  margin-top: 380px;
+}
