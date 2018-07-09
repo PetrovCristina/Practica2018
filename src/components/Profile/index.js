@@ -116,6 +116,18 @@ class Profile extends React.Component {
                         </button>
                       </div>
                     </div>
+                    <div className="avatar">
+                      <Link to="/profile/">
+                        <img
+                          src={currentUser.profile_image.small}
+                          alt="Profile"
+                          className="pic"
+                        />
+                        <p>
+                          {currentUser.first_name} {currentUser.last_name}
+                        </p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
