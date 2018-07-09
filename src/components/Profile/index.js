@@ -10,7 +10,8 @@ import {
   DropdownMenu,
   DropdownItem,
   Row,
-  Col
+  Col,
+  Button
 } from 'reactstrap'
 import sorry from './sorry.jpg'
 import logo from './logo.png'
@@ -67,9 +68,9 @@ class Profile extends React.Component {
               <h1>
                 {currentUser.first_name} {currentUser.last_name}
               </h1>
-              <button type="button" className="edit btn btn-outline-secondary">
+              <Button type="button" className="edit btn btn-outline-secondary">
                 Edit profile
-              </button>
+              </Button>
             </div>
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle color="white">...</DropdownToggle>
@@ -101,21 +102,24 @@ class Profile extends React.Component {
                     className="userImages float-left"
                   />
                   <div className="overlay">
-                    <button className="button button-like">
+                    <Button className="button button-like">
                       <FontAwesomeIcon icon="heart" />
-                    </button>
+                    </Button>
                     <div className="input-group plus-minus-input">
                       <div className="input-group-button">
-                        <button
+                        <Button
                           type="button"
                           className="button square"
                           data-quantity="plus"
                           data-field="quantity">
                           <FontAwesomeIcon icon="plus" />
                           <span>Collect</span>
-                        </button>
+                        </Button>
                       </div>
                     </div>
+                    <Button className="download1">
+                      <FontAwesomeIcon icon="download" />
+                    </Button>
                     <div className="avatar">
                       <Link to="/profile/">
                         <img

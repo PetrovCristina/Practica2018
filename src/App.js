@@ -11,9 +11,14 @@ import Login from './components/welcome'
 import PhotoList from './components/PhotoList'
 import Search from './components/Search'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHeart, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHeart,
+  faPlus,
+  faSearch,
+  faDownload
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHeart, faPlus, faSearch)
+library.add(faHeart, faPlus, faSearch, faDownload)
 
 class App extends Component {
   state = {

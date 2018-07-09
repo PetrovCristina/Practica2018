@@ -10,6 +10,35 @@ ul img {
 }
 
 .userPic {
-  margin-left: 40px;
-  margin-top: 380px;
+  margin-left: 5px;
+  margin-top: -90px;
+}
+
+.userPic p {
+  color: #fff;
+  opacity: 0.8;
+  margin-left: 50px;
+  margin-top: -30px;
+}
+
+.userPic p:hover {
+  text-decoration: none;
+}
+
+.overlay1 {
+  width: auto;
+  margin-left: 50px;
+}
+
+.collect {
+  margin-top: 10px;
+}
+
+.heart {
+  margin-left: 250px;
+}
+
+.download {
+  margin-left: 360px;
+  margin-top: -30px;
 }

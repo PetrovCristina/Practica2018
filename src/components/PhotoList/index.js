@@ -3,7 +3,7 @@ import unsplash from '../../unsplash'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Row, Col } from 'reactstrap'
+import { Row, Col, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 class PhotoList extends React.Component {
@@ -42,28 +42,32 @@ class PhotoList extends React.Component {
                       />
                     </li>
                   </ul>
-                  <div className="overlay">
-                    <button className="button button-like">
+                  <div className="overlay1 overlay">
+                    <Button className="button-like heart">
                       <FontAwesomeIcon icon="heart" />
-                    </button>
+                    </Button>
                     <div className="input-group plus-minus-input">
-                      <div className="input-group-button">
-                        <button
+                      <div className="input-group-button collect">
+                        <Button
                           type="button"
-                          className="button square"
+                          className="button square "
                           data-quantity="plus"
                           data-field="quantity">
                           <FontAwesomeIcon icon="plus" />
                           <span>Collect</span>
-                        </button>
+                        </Button>
                       </div>
                     </div>
+                    <Button className="download">
+                      <FontAwesomeIcon icon="download" />
+                    </Button>
                     <div className="userPic">
                       <Link to="/">
                         <img
                           src={photo.user.profile_image.small}
                           alt={photo.user.bio}
                         />
+                        <p>{photo.user.name}</p>
                       </Link>
                     </div>
                   </div>
