@@ -20,15 +20,14 @@ const ListItem = ({ photo }) => (
     </ul>
     <div className="overlay1 overlay">
       <Button className="button-like heart" onClick={this.handleClick}>
-        <FontAwesomeIcon icon="heart">
-          {this.state.like ? 'Unlike' : 'Like'}
-        </FontAwesomeIcon>
+        {this.state.like ? 'Unlike' : 'Like'}
+        <FontAwesomeIcon icon="heart" />
       </Button>
       <div className="input-group plus-minus-input">
         <div className="input-group-button collect">
           <Button
             type="button"
-            className="button square "
+            className="button square"
             data-quantity="plus"
             data-field="quantity">
             <FontAwesomeIcon icon="plus" />
@@ -51,14 +50,8 @@ const ListItem = ({ photo }) => (
 
 class PhotoList extends React.Component {
   state = {
-    photos: []
-  }
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      like: false
-    }
+    photos: [],
+    like: false
   }
   handleClick(e) {
     e.preventDefault()
@@ -85,10 +78,11 @@ class PhotoList extends React.Component {
       .listPhotos()
       .then(response => response.json())
       .then(newPhotos => {
-        this.setState(({ photos, page }) => ({
+        this.setState(({ photos, page, like }) => ({
           photos: [...photos, ...newPhotos],
           isInfiniteLoading: false,
-          page: page + 1
+          page: page + 1,
+          like: false
         }))
       })
       .catch(error => console.log('Error fetching and parsing data', error))
