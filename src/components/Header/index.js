@@ -26,12 +26,6 @@ class Header extends React.Component {
     isOpen: false
   }
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -62,7 +56,6 @@ class Header extends React.Component {
                 </div>
               </FormGroup>
             </Form>
-
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

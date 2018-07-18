@@ -3,7 +3,7 @@ import unsplash from '../../unsplash'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Row, Col, Button } from 'reactstrap'
+import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
@@ -19,8 +19,10 @@ const ListItem = ({ photo }) => (
       </li>
     </ul>
     <div className="overlay1 overlay">
-      <Button className="button-like heart">
-        <FontAwesomeIcon icon="heart" />
+      <Button className="button-like heart" onClick={this.handleClick}>
+        <FontAwesomeIcon icon="heart">
+          {this.state.like ? 'Unlike' : 'Like'}
+        </FontAwesomeIcon>
       </Button>
       <div className="input-group plus-minus-input">
         <div className="input-group-button collect">
@@ -51,7 +53,17 @@ class PhotoList extends React.Component {
   state = {
     photos: []
   }
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      like: false
+    }
+  }
+  handleClick(e) {
+    e.preventDefault()
+    this.setState({ like: !this.state.like })
+  }
   fetchMoreData = () => {
     if (this.state.photos.length >= 500) {
       this.setState({ hasMore: false })
