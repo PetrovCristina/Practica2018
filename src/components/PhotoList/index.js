@@ -6,6 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import Toggle from 'react-toggled'
+import Gallery from 'react-grid-gallery'
+
+const IMAGES = ({ photo }) => [
+  {
+    src: photo.urls.full,
+    caption: photo.description
+  }
+]
 
 const ListItem = ({ photo }) => (
   <div className="hovereffect" key={photo.id}>
@@ -18,11 +27,15 @@ const ListItem = ({ photo }) => (
         />
       </li>
     </ul>
+
     <div className="overlay1 overlay">
-      <Button className="button-like heart" onClick={this.handleClick}>
-        {this.state.like ? 'Unlike' : 'Like'}
-        <FontAwesomeIcon icon="heart" />
-      </Button>
+      <Toggle>
+        {({ on, getTogglerProps }) => (
+          <Button {...getTogglerProps()} className="button-like heart">
+            {on ? 'Liked!:)' : <FontAwesomeIcon icon="heart" />}
+          </Button>
+        )}
+      </Toggle>
       <div className="input-group plus-minus-input">
         <div className="input-group-button collect">
           <Button
@@ -50,13 +63,9 @@ const ListItem = ({ photo }) => (
 
 class PhotoList extends React.Component {
   state = {
-    photos: [],
-    like: false
+    photos: []
   }
-  handleClick(e) {
-    e.preventDefault()
-    this.setState({ like: !this.state.like })
-  }
+
   fetchMoreData = () => {
     if (this.state.photos.length >= 500) {
       this.setState({ hasMore: false })
@@ -88,6 +97,7 @@ class PhotoList extends React.Component {
       .catch(error => console.log('Error fetching and parsing data', error))
 
   render() {
+    ;<Gallery images={IMAGES} />
     const { photos } = this.state
     return (
       <InfiniteScroll

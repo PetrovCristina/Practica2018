@@ -34,7 +34,6 @@ class Header extends React.Component {
             <NavbarBrand tag={Link} to="/">
               <img src={logo} alt="Logo" />
             </NavbarBrand>
-
             <Form className="searchForm">
               <FormGroup>
                 <div className="wrap">
