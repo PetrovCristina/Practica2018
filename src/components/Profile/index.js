@@ -17,6 +17,7 @@ import sorry from './sorry.jpg'
 import logo from './logo.png'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Toggle from 'react-toggled'
 
 class Profile extends React.Component {
   state = {
@@ -102,9 +103,15 @@ class Profile extends React.Component {
                     className="userImages float-left"
                   />
                   <div className="overlay">
-                    <Button className="button button-like">
-                      <FontAwesomeIcon icon="heart" />
-                    </Button>
+                    <Toggle>
+                      {({ on, getTogglerProps }) => (
+                        <Button
+                          {...getTogglerProps()}
+                          className="button button-like">
+                          {on ? 'Liked!:)' : <FontAwesomeIcon icon="heart" />}
+                        </Button>
+                      )}
+                    </Toggle>
                     <div className="input-group plus-minus-input">
                       <div className="input-group-button">
                         <Button

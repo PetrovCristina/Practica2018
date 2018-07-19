@@ -3,7 +3,7 @@ import unsplash from '../../unsplash'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Toggle from 'react-toggled'
@@ -61,7 +61,7 @@ const ListItem = ({ photo }) => (
         <FontAwesomeIcon icon="download" />
       </Button>
       <div className="userPic">
-        <Link to="/">
+        <Link to={photo.user.links.self}>
           <img src={photo.user.profile_image.small} alt={photo.user.bio} />
           <p>{photo.user.name}</p>
         </Link>
@@ -117,7 +117,6 @@ class PhotoList extends React.Component {
 
   render() {
     ;<Gallery images={IMAGES} />
-    const { photos } = this.state
     return (
       <InfiniteScroll
         dataLength={this.state.photos}
