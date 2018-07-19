@@ -3,7 +3,7 @@ import unsplash from '../../unsplash'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Toggle from 'react-toggled'
@@ -21,10 +21,19 @@ const ListItem = ({ photo }) => (
     <ul>
       <li>
         <img
+          onClick={this.toggle}
           className="img-thumbnail rounded float-left"
           src={photo.urls.small}
           alt={photo.description}
         />
+        <Modal isOpen={this.state} toggle={this.toggle}>
+          <ModalBody>kfldkgljdgkldjgk</ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
       </li>
     </ul>
 
@@ -62,10 +71,19 @@ const ListItem = ({ photo }) => (
 )
 
 class PhotoList extends React.Component {
-  state = {
-    photos: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      photos: [],
+      modal: false
+    }
+    this.toggle = this.toggle.bind(this)
   }
-
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
   fetchMoreData = () => {
     if (this.state.photos.length >= 500) {
       this.setState({ hasMore: false })
@@ -87,11 +105,12 @@ class PhotoList extends React.Component {
       .listPhotos()
       .then(response => response.json())
       .then(newPhotos => {
-        this.setState(({ photos, page, like }) => ({
+        this.setState(({ photos, page, like, modal }) => ({
           photos: [...photos, ...newPhotos],
           isInfiniteLoading: false,
           page: page + 1,
-          like: false
+          like: false,
+          modal: false
         }))
       })
       .catch(error => console.log('Error fetching and parsing data', error))
