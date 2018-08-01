@@ -37,9 +37,8 @@ class App extends Component {
             <Route path="/search" component={Search} />
             <Route path="/profile" component={Profile} />
             <Route exact path="/" component={PhotoList} />
-            {/*<Route path="/photo/:id" component={User} />*/}
+            <Route path="/profile/:id" component={Profile} />
           </Switch>
-          {/* Footer */}
         </Container>
       </React.Fragment>
     )
