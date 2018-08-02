@@ -49,11 +49,7 @@ class Header extends React.Component {
                       placeholder="Search free high-resolution photos"
                       onChange={this.onChange}
                     />
-                    <Button
-                      color="white"
-                      className="searchButton"
-                      tag={Link}
-                      to="/search/">
+                    <Button color="white" className="searchButton">
                       <FontAwesomeIcon icon="search" />
                     </Button>
                   </div>

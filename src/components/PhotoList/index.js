@@ -1,16 +1,9 @@
 import React from 'react'
-import unsplash from '../../unsplash'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import ListItem from './const.js'
-
-const IMAGES = ({ photo }) => [
-  {
-    src: photo.urls.full,
-    caption: photo.description
-  }
-]
+import ListItem from './ListItem.js'
+import unsplash from '../../unsplash'
 
 class PhotoList extends React.Component {
   state = {
@@ -28,7 +21,6 @@ class PhotoList extends React.Component {
       this.setState({ hasMore: false })
       return
     }
-
     unsplash.photos
       .listPhotos(this.state.page)
       .then(response => response.json())

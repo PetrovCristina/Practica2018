@@ -23,6 +23,7 @@ library.add(faHeart, faPlus, faSearch, faDownload)
 
 class App extends Component {
   state = {
+    photos: [],
     results: [],
     loading: true
   }
@@ -47,7 +48,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/auth/callback" component={AuthCallBack} />
             <Route path="/login" exact component={Login} />
-            <Route path="/search" component={Search} />
+            <Route
+              exact
+              path="/search"
+              render={() => <Search photos={this.state.results} />}
+            />
             <Route path="/profile" component={Profile} />
 
             <Route
