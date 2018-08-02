@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Container } from 'reactstrap'
+import unsplash from './unsplash'
 import './App.css'
 import Header from './components/Header'
 import Profile from './components/Profile'
@@ -26,17 +27,35 @@ class App extends Component {
     loading: true
   }
 
+  search = text => {
+    console.log(text)
+    unsplash.search
+      .photos(text, 1)
+      .then(response => response.json())
+      .then(search => {
+        console.log(search)
+        this.setState({ search })
+      })
+      .catch(error => console.log('Error fetching and parsing data', error))
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Header />
+        <Header search={this.search} />
         <Container>
           <Switch>
             <Route exact path="/auth/callback" component={AuthCallBack} />
             <Route path="/login" exact component={Login} />
             <Route path="/search" component={Search} />
             <Route path="/profile" component={Profile} />
-            <Route exact path="/" component={PhotoList} />
+
+            <Route
+              exact
+              path="/"
+              render={() => <PhotoList photos={this.state.photos} />}
+            />
+
             <Route path="/profile/:id" component={Profile} />
           </Switch>
         </Container>

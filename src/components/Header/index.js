@@ -26,6 +26,10 @@ class Header extends React.Component {
     isOpen: false
   }
 
+  onChange = e => {
+    this.props.search(e.target.value)
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -43,6 +47,7 @@ class Header extends React.Component {
                       name="search"
                       className="searchTerm"
                       placeholder="Search free high-resolution photos"
+                      onChange={this.onChange}
                     />
                     <Button
                       color="white"
