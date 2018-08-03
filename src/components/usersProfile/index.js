@@ -4,15 +4,7 @@ import './profile.css'
 import './buttons.css'
 import './hover.css'
 import unsplash from '../../unsplash'
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Row,
-  Col,
-  Button
-} from 'reactstrap'
+import { Row, Col, Button } from 'reactstrap'
 import sorry from './sorry.jpg'
 import logo from './logo.png'
 import { Link } from 'react-router-dom'
@@ -27,29 +19,15 @@ class usersProfile extends React.Component {
   componentDidMount() {
     this.getProfile()
   }
-  getProfile = () =>
+  getProfile = user =>
     unsplash.users
-      .profile()
+      .profile(user)
       .then(response => response.json())
       .then(user => {
         console.log(user)
         this.setState({ user })
       })
       .catch(error => console.log('Error fetching and parsing data', error))
-  constructor(props) {
-    super(props)
-
-    this.toggle = this.toggle.bind(this)
-    this.state = {
-      dropdownOpen: false
-    }
-  }
-
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }))
-  }
 
   render() {
     const { user } = this.state
