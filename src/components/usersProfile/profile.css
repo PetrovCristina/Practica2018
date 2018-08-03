@@ -1,0 +1,60 @@
+.userImages {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.position {
+  margin-top: 100px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  margin-left: 100%;
+  margin-top: 30px;
+  height: 150px;
+  width: 150px;
+}
+
+.username {
+  font-weight: bold;
+  margin-left: 25%;
+  margin-top: 50px;
+}
+.edit {
+  margin-left: 30%;
+  margin-top: -80px;
+}
+
+.dropdown {
+  margin-left: 60%;
+  margin-top: -68px;
+}
+
+.profileDesc {
+  margin-left: 25%;
+  margin-top: 40px;
+}
+
+.mainPage {
+  margin-top: 80px;
+}
+
+.mainPage img {
+  margin-left: 50%;
+}
+
+.mainPage p {
+  margin-left: 45%;
+  color: #999;
+  margin-bottom: 70px;
+  margin-top: 12px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  margin-left: 100%;
+  margin-top: 30px;
+  height: 150px;
+  width: 150px;
+}

@@ -1,0 +1,123 @@
+/* like button */
+
+.button-like {
+  border: 0px solid #000;
+  background-color: white;
+  opacity: 0.8;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-left: 200px;
+  border-radius: 5px;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  color: red;
+  transition: all ease 0.4s;
+}
+
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.4s;
+}
+
+.button-like:hover {
+  border-color: #cc4b37;
+  background-color: white;
+}
+
+.liked {
+  background-color: white;
+  border-color: white;
+  opacity: 0.5;
+}
+
+.liked .fa {
+  color: #fefefe;
+}
+
+.liked:focus {
+  background-color: #cc4b37;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+  color: #fefefe;
+}
+
+.liked:hover {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+  color: #fefefe;
+}
+/* end like button */
+
+/* collect button */
+
+.plus-minus-input .input-group-button .square {
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: -75px;
+  margin-left: 305px;
+}
+
+.square {
+  border: 0px solid #000;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 5px;
+  text-decoration: none;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  color: #8a8a8a;
+  transition: all ease 0.4s;
+}
+
+.square .fa {
+  transition: all ease 0.4s;
+}
+
+.square:focus {
+  background-color: transparent;
+}
+
+.square:focus .fa {
+  color: #8a8a8a;
+}
+
+.square:hover {
+  border-color: #cc4b37;
+  background-color: white;
+  opacity: 0.8;
+}
+
+span {
+  margin-left: 0.5rem;
+}
+.fa,
+span {
+  transition: all ease 0.4s;
+}
+
+.fa,
+span {
+  color: $dark-gray;
+}
+
+.square:hover .fa {
+  color: #8a8a8a;
+}
+
+/* end collect button */
+
+/* download button */
+.download1 {
+  margin-left: 360px;
+  margin-top: -50px;
+}
+/* end download button */
