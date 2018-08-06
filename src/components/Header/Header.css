@@ -21,7 +21,6 @@ i.Nav {
 .Nav-brand-logo {
   display: block;
   background-position: -176px 0px;
-  background-image: url(../../sprite.png);
   background-size: 405px 379px;
   background-repeat: no-repeat;
   height: 35px;
@@ -29,7 +28,6 @@ i.Nav {
   text-indent: -1000%;
 }
 .Nav-profile {
-  background-image: url(../../avatar.png);
   background-size: 40px 40px;
   background-repeat: no-repeat;
   height: 35px;

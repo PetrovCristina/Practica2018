@@ -10,7 +10,6 @@ import AuthCallBack from './AuthCallBack.js'
 import { changeData } from './actions'
 import Login from './components/welcome'
 import PhotoList from './components/PhotoList'
-import Search from './components/Search'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faHeart,
@@ -24,8 +23,9 @@ library.add(faHeart, faPlus, faSearch, faDownload)
 class App extends Component {
   state = {
     photos: [],
-    results: [],
-    loading: true
+    loading: true,
+    page: 1,
+    hasMore: true
   }
 
   search = text => {
@@ -33,9 +33,26 @@ class App extends Component {
     unsplash.search
       .photos(text, 1)
       .then(response => response.json())
-      .then(search => {
-        console.log(search)
-        this.setState({ search })
+      .then(searchPhotos => {
+        console.log(searchPhotos)
+        this.setState({ photos: searchPhotos.results })
+      })
+      .catch(error => console.log('Error fetching and parsing data', error))
+  }
+  getPhotos = () => {
+    if (this.state.photos.length > 100) {
+      this.setState({ hasMore: false })
+      return
+    }
+    unsplash.photos
+      .listPhotos(this.state.page)
+      .then(response => response.json(console.log(response)))
+      .then(newPhotos => {
+        console.log(newPhotos)
+        this.setState(({ photos, page }) => ({
+          photos: [...photos, ...newPhotos],
+          page: page + 1
+        }))
       })
       .catch(error => console.log('Error fetching and parsing data', error))
   }
@@ -48,17 +65,18 @@ class App extends Component {
           <Switch>
             <Route exact path="/auth/callback" component={AuthCallBack} />
             <Route path="/login" exact component={Login} />
-            <Route
-              exact
-              path="/search"
-              render={() => <Search photos={this.state.results} />}
-            />
-            <Route path="/profile" component={Profile} />
+            <Route exact path="/profile" component={Profile} />
 
             <Route
               exact
               path="/"
-              render={() => <PhotoList photos={this.state.photos} />}
+              render={() => (
+                <PhotoList
+                  photos={this.state.photos}
+                  hasMore={this.state.hasMore}
+                  getPhotos={this.getPhotos}
+                />
+              )}
             />
 
             <Route path="/profile/:id" component={Profile} />

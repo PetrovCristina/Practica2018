@@ -12,6 +12,6 @@ const unsplash = new Unsplash({
 })
 
 mock(unsplash, 'photos.listPhotos', listPhotosMock)
-mock(unsplash, 'curretUser.profile', profileMock)
+mock(unsplash, 'currentUser.profile', profileMock)
 
 export default unsplash

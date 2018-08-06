@@ -25,17 +25,22 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.getProfile()
+    this.getProfile(this.props.match.params.id)
   }
-  getProfile = () =>
-    unsplash.currentUser
-      .profile()
+
+  getProfile = userId => {
+    const call = userId
+      ? unsplash.users.profile(userId)
+      : unsplash.currentUser.profile()
+
+    call
       .then(response => response.json())
       .then(currentUser => {
         console.log(currentUser)
         this.setState({ currentUser })
       })
       .catch(error => console.log('Error fetching and parsing data', error))
+  }
 
   constructor(props) {
     super(props)
@@ -54,6 +59,7 @@ class Profile extends React.Component {
 
   render() {
     const { currentUser } = this.state
+    const isNotMe = this.props.match.params.id
     return currentUser ? (
       <React.Fragment>
         <Row>
@@ -69,21 +75,42 @@ class Profile extends React.Component {
               <h1>
                 {currentUser.first_name} {currentUser.last_name}
               </h1>
-              <Button type="button" className="edit btn btn-outline-secondary">
-                Edit profile
-              </Button>
+
+              {isNotMe ? (
+                <Button
+                  type="button"
+                  className="edit1 btn btn-outline-secondary">
+                  Follow
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  className="edit btn btn-outline-secondary">
+                  Edit profile
+                </Button>
+              )}
+
+              {isNotMe && (
+                <Button
+                  type="button"
+                  className="edit1 btn btn-outline-secondary">
+                  Message
+                </Button>
+              )}
             </div>
-            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle color="white">...</DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Account settings</DropdownItem>
-                <DropdownItem>Submit a photo</DropdownItem>
-                <DropdownItem>Manage photos</DropdownItem>
-                <DropdownItem>My Stats</DropdownItem>
-                <DropdownItem>Contact us</DropdownItem>
-                <DropdownItem>Logout</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            {!isNotMe && (
+              <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle color="white">...</DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>Account settings</DropdownItem>
+                  <DropdownItem>Submit a photo</DropdownItem>
+                  <DropdownItem>Manage photos</DropdownItem>
+                  <DropdownItem>My Stats</DropdownItem>
+                  <DropdownItem>Contact us</DropdownItem>
+                  <DropdownItem>Logout</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            )}
             <div className="profileDesc">
               Download free, beautiful high-quality photos curated by{' '}
               {currentUser.first_name}.

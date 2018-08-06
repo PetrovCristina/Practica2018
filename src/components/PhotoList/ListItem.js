@@ -51,7 +51,7 @@ const ListItem = ({ photo }) => (
         <FontAwesomeIcon icon="download" />
       </Button>
       <div className="userPic">
-        <Link to={photo.user.links.self}>
+        <Link to={`/profile/${photo.user.username}`}>
           <img src={photo.user.profile_image.small} alt={photo.user.bio} />
           <p>{photo.user.name}</p>
         </Link>

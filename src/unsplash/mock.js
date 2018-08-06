@@ -7,8 +7,10 @@ export function mock(unsplash, functionPath, data) {
   set(unsplash, functionPath, function() {
     return oldFunction.apply(this, arguments).then(res => {
       const limit = res.headers.get('x-ratelimit-remaining')
-      if (parseInt(limit === 0)) {
-        return new Response(JSON.stringify(data))
+      if (parseInt(limit, 10) === 0) {
+        return new Response(JSON.stringify(data), {
+          headers: res.headers
+        })
       }
       return res
     })
