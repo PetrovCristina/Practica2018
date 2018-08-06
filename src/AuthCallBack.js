@@ -1,7 +1,5 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { saveToken } from './actions'
 
 import unsplash from './unsplash'
 
@@ -25,10 +23,4 @@ class AuthCallBack extends React.Component {
   }
 }
 
-const mapDispatch = {
-  saveToken
-}
-export default connect(
-  null,
-  mapDispatch
-)(AuthCallBack)
+export default AuthCallBack

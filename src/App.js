@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { Container } from 'reactstrap'
 import unsplash from './unsplash'
-import './App.css'
 import Header from './components/Header'
 import Profile from './components/Profile'
 import AuthCallBack from './AuthCallBack.js'
-import { changeData } from './actions'
-import Login from './components/welcome'
 import PhotoList from './components/PhotoList'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -64,7 +60,6 @@ class App extends Component {
         <Container>
           <Switch>
             <Route exact path="/auth/callback" component={AuthCallBack} />
-            <Route path="/login" exact component={Login} />
             <Route exact path="/profile" component={Profile} />
 
             <Route
@@ -87,11 +82,4 @@ class App extends Component {
   }
 }
 
-const mapDispatch = {
-  changeData
-}
-
-export default connect(
-  null,
-  mapDispatch
-)(App)
+export default App
