@@ -21,7 +21,8 @@ import Toggle from 'react-toggled'
 
 class Profile extends React.Component {
   state = {
-    currentUser: null
+    currentUser: null,
+    dropdownOpen: false
   }
 
   componentDidMount() {
@@ -42,16 +43,7 @@ class Profile extends React.Component {
       .catch(error => console.log('Error fetching and parsing data', error))
   }
 
-  constructor(props) {
-    super(props)
-
-    this.toggle = this.toggle.bind(this)
-    this.state = {
-      dropdownOpen: false
-    }
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }))
